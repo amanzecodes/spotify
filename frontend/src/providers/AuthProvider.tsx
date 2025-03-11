@@ -1,6 +1,7 @@
 import { axiosInstance } from "@/lib/axios";
 import { useAuth } from "@clerk/clerk-react";
 import { useEffect, useState } from "react";
+import { Loader } from "lucide-react";
 
 const updateAPiToken = (token: string | null) => {
   if (token)
@@ -8,26 +9,34 @@ const updateAPiToken = (token: string | null) => {
   else delete axiosInstance.defaults.headers.common["Authorization"];
 };
 
-function AuthProvider() {
-  const { getToken, userId } = useAuth();
+function AuthProvider(props: { children: React.ReactNode }) {
+  const { getToken } = useAuth();
   const [loading, setLoading] = useState(true);
-
+  const { children } = props;
   useEffect(() => {
     const initAuth = async () => {
       try {
         const token = await getToken();
         updateAPiToken(token);
-      } catch (error) {
-        updateAPiToken(null)
+      } catch (error: any) {
+        updateAPiToken(null);
         console.log("Error in auth provider", error);
-      } finally{
+      } finally {
         setLoading(false);
       }
     };
 
-    initAuth()
+    initAuth();
   }, [getToken]);
-  return <div></div>;
+
+  if (loading)
+    return (
+      <div className="h-screen w-full flex items-center justify-center">
+        <Loader className="size-8 text-emerald-500 animate-spin" />
+      </div>
+    );
+
+  return <div>{children}</div>;
 }
 
 export default AuthProvider;
