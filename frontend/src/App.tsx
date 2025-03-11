@@ -3,6 +3,7 @@ import HomePage from "./pages/home/HomePage";
 import AuthCallbackPage from "./pages/auth-callback/AuthCallback";
 
 function App() {
+
   return (
     <>
       <Routes>
@@ -12,4 +13,4 @@ function App() {
     </>
   );
 }
-export default App;
+export default App; 
