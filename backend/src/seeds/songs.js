@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import { Song } from "../models/song.model.js";
 import { config } from "dotenv";
 
@@ -134,7 +135,7 @@ const songs = [
 
 const seedSongs = async () => {
 	try {
-		await mongoose.connect(process.env.MONGODB_URI);
+		await mongoose.connect(process.env.MONGO_URI);
 
 		// Clear existing songs
 		await Song.deleteMany({});
