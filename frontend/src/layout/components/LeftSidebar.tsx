@@ -7,7 +7,9 @@ import { HomeIcon, Library, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const LeftSidebar = () => {
-    const isLoading = true
+  const isLoading = false;
+
+
   return (
     <div className="h-full flex flex-col gap-2">
       {/* Navigation Menu */}
@@ -18,8 +20,7 @@ const LeftSidebar = () => {
             className={cn(
               buttonVariants({
                 variant: "ghost",
-                className:
-                  "w-full justify-start text-white hover:bg-zinc-800",
+                className: "w-full justify-start text-white hover:bg-zinc-800",
               })
             )}
           >
@@ -48,19 +49,15 @@ const LeftSidebar = () => {
       {/* library section */}
       <div className="flex-1 rounded-lg bg-zinc-900 p-4">
         <div className="flex items-center justify-between mt-4">
-            <div className="flex items-center text-white px-2">
-                <Library className="size-5 mr-2"/>
-                <span className="hidden md:inline">PlayLists</span>
-            </div>
+          <div className="flex items-center text-white px-2">
+            <Library className="size-5 mr-2" />
+            <span className="hidden md:inline">PlayLists</span>
+          </div>
         </div>
         <ScrollArea className="h-[calc(100vh-300px)]">
-              <div className="space-y-2">
-                {isLoading ? (
-                    <PlaylistSkeleton className="mt-2"/>
-                ) : (
-                    "Some music"
-                )}
-              </div>
+          <div className="space-y-2">
+            {isLoading ? <PlaylistSkeleton className="mt-4" /> : "Some music"}
+          </div>
         </ScrollArea>
       </div>
     </div>
