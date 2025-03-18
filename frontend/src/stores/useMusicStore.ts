@@ -1,8 +1,16 @@
-
 import { axiosInstance } from '@/lib/axios';
+import { Album, Song } from '@/types';
 import { create } from 'zustand';
 
-export const useMusicStore = create((set) => ({
+interface MusicStore{
+    albums: Album[];
+    songs: Song[];
+    isLoading: boolean;
+    error: string | null;
+    fetchAlbums: () => Promise<void>;
+}
+
+export const useMusicStore = create<MusicStore>((set) => ({
     albums:[],
     songs: [],
     isLoading: false,
