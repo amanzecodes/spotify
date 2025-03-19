@@ -18,3 +18,10 @@ export interface Album {
     releaseYear: number;
     songs: Song[];
 }
+
+export interface Users {
+    _id: string;
+    fullName: string;
+    imageUrl: string;
+    clerkId: string;
+}
