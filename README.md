@@ -4,10 +4,13 @@
 ## What I learnt from building this porject
 <p>1. Global state management with zustand - In some cases some logic that fetches data from the backend would be used more frequently, That's why we create a global state is required</p>
 
+### For Context, This just a demo sha
+
 ```javascript
 import { create } from "zustand";
 
 interface Store {
+user: User[]
   isLoggedIn: boolean;
   password: string | null;
   error: string | null;
@@ -16,6 +19,7 @@ interface Store {
 }
 
 export const useStore = create<Store>((set) => ({
+  user: []
   isLoggedIn: false,
   password: null,
   error: null,
@@ -25,7 +29,7 @@ export const useStore = create<Store>((set) => ({
     set({ isLoading: true });
     try {
       const response = await axiosInstance.get("/hello");
-      set({ password: response.data });
+      set({ user: response.data, isLogged: true });
     } catch (err: any) {
       set({ error: err.response?.data?.message || "An error occurred" });
     } finally {
