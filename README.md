@@ -2,7 +2,7 @@
 ## Made with React Js, Next Js, Tailwind CSS, Zustand and Typescript/
 
 ## What I learnt from building this porject
-<p>1. Global state management with zustand - In some cases some logic that fetches data from the backend would be used more frequently, That why we create a global state is required</p>
+<p>1. Global state management with zustand - In some cases some logic that fetches data from the backend would be used more frequently, That's why we create a global state is required</p>
 
 ```javascript
 import { create } from "zustand";
@@ -35,7 +35,10 @@ export const useStore = create<Store>((set) => ({
 }));
 ```
 
-<p>2. Authentication with Clerk/Express JS - Useful clerk functions like, useUser(), useSignIn(), useAuth() were use to implement auhentication kind of seamlessly</p>
-<p>3. AuthProviders for the entire application, this basically set the provides the application with auth tokens gotten from clerk</p>
+<p>2. Authentication with Clerk/Express JS - Useful clerk functions like, useUser(), useSignIn(), useAuth() were used to implement auhentication kind of seamlessly</p>
+<p>3. AuthProviders for the entire application, this basically  provides the application with auth tokens gotten from clerk</p>
 <p>4. React Singleton design pattern</p>
+<p>Auth Call backs and SSO callback</p>
+<p>advanced grid Layout</p>
+<p>React router dom</p>
 And More...
