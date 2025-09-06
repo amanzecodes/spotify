@@ -1,5 +1,5 @@
 ### SPOTIFY CLONE
-## Made with React Js, Next Js, Tailwind CSS, Zustand and Typescript/
+## Made with React Js, Node Js, Tailwind CSS, Zustand and Typescript/
 
 ## What I learnt from building this porject
 <p>1. Global state management with zustand - In some cases some logic that fetches data from the backend would be used more frequently, That's why we create a global state is required</p>
